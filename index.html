@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLASS Honors Program | Mohamed Youssef</title>
+<meta name="description" content="Mohamed Youssef's GLASS Honors Program portfolio — leadership, global competency, and academic excellence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1c;
+    --bg-panel:#111a2c;
+    --bg-panel-alt:#0d1526;
+    --border:rgba(231,236,245,0.10);
+    --border-strong:rgba(231,236,245,0.20);
+    --text:#e7ecf5;
+    --text-dim:#93a0ba;
+    --text-faint:#5c6a87;
+    --accent:#c9a24b;
+    --accent-soft:rgba(201,162,75,0.14);
+    --accent-line:rgba(201,162,75,0.35);
+    --teal:#6fa8ae;
+    --radius-sm:3px;
+    --radius-md:10px;
+    --maxw:1180px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .tag{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--accent);
+    letter-spacing:0.02em;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:var(--radius-sm);
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .btn-primary{background:var(--accent); color:#161005;}
+  .btn-primary:hover{background:#d6ae57;}
+
+  .btn-ghost{background:transparent; color:var(--text); border-color:var(--border-strong);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(10,15,28,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:68px;
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    color:var(--text);
+  }
+  .brand span{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    color:var(--text-faint);
+    font-weight:400;
+  }
+  .nav-links{
+    display:flex;
+    gap:2px;
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .nav-links a{
+    display:block;
+    padding:10px 16px;
+    font-size:0.92rem;
+    text-decoration:none;
+    color:var(--text-dim);
+    border-radius:var(--radius-sm);
+    transition:color 0.15s ease, background 0.15s ease;
+  }
+  .nav-links a:hover{color:var(--text); background:var(--bg-panel);}
+  .nav-links a.active{color:var(--accent);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-sm);
+    color:var(--text);
+    width:40px; height:40px;
+    cursor:pointer;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:120px 0 90px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(201,162,75,0.10), transparent 60%),
+      var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:linear-gradient(to bottom, black, transparent 75%);
+    opacity:0.4;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; max-width:760px;}
+  .hero .tag{
+    display:inline-block;
+    padding:6px 12px;
+    border:1px solid var(--accent-line);
+    border-radius:var(--radius-sm);
+    background:var(--accent-soft);
+    margin-bottom:26px;
+  }
+  .hero .tag::before{content:"● "; color:var(--accent);}
+  .hero h1{
+    font-size:clamp(2.2rem, 4.6vw, 3.6rem);
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .hero p.lede{
+    font-size:1.12rem;
+    color:var(--text-dim);
+    max-width:600px;
+    margin-bottom:36px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0,1fr));
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    max-width:820px;
+  }
+  .stat{
+    background:var(--bg-panel);
+    padding:20px 18px;
+  }
+  .stat .num{
+    font-family:var(--font-display);
+    font-size:1.7rem;
+    font-weight:700;
+    color:var(--text);
+  }
+  .stat .num em{color:var(--accent); font-style:normal;}
+  .stat .label{
+    font-size:0.78rem;
+    color:var(--text-faint);
+    margin-top:4px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .section-head .tag{display:block; margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.6rem, 3vw, 2.2rem);}
+  .section-head p{color:var(--text-dim); margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- ABOUT ---------- */
+  #about{background:var(--bg-panel-alt); border-bottom:1px solid var(--border);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:stretch;
+  }
+  .about-copy p{color:var(--text-dim); margin:0 0 18px; font-size:1.02rem;}
+  .about-copy p:last-of-type{margin-bottom:28px;}
+  .about-copy .btn{margin-top:6px;}
+
+  .about-media img{
+    border-radius:var(--radius-md);
+    border:1px solid var(--border-strong);
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  .pullquote{
+    margin-top:24px;
+    padding:26px 26px 24px;
+    background:var(--bg-panel);
+    border:1px solid var(--border-strong);
+    border-left:3px solid var(--accent);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+  }
+  .pullquote p{
+    font-family:var(--font-display);
+    font-size:1.12rem;
+    line-height:1.5;
+    color:var(--text);
+    margin:0 0 14px;
+  }
+  .pullquote cite{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--text-faint);
+    font-style:normal;
+  }
+
+  /* ---------- PILLARS ---------- */
+  .pillar-tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
+    margin-bottom:36px;
+  }
+  .pillar-tab{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.92rem;
+    background:none;
+    border:none;
+    color:var(--text-faint);
+    padding:12px 4px;
+    margin-right:28px;
+    cursor:pointer;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .pillar-tab .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--text-faint);
+    transition:background 0.15s ease;
+  }
+  .pillar-tab::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-1px;
+    height:2px; background:transparent;
+  }
+  .pillar-tab:hover{color:var(--text-dim);}
+  .pillar-tab.active{color:var(--text);}
+  .pillar-tab.active::after{background:var(--accent);}
+  .pillar-tab.active .dot{background:var(--accent);}
+
+  .pillar-panel{display:none;}
+  .pillar-panel.active{display:flex; flex-direction:column;}
+  .pillar-entry{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:44px;
+    align-items:center;
+  }
+  .pillar-entry + .pillar-entry{
+    margin-top:48px;
+    padding-top:48px;
+    border-top:1px solid var(--border);
+  }
+  .pillar-entry img{
+    border-radius:var(--radius-md);
+    border:1px solid var(--border-strong);
+    aspect-ratio:5/4;
+    object-fit:cover;
+    object-position:center top;
+  }
+  /* Option B: show the whole photo, no cropping — add class="fit-contain" to any <img> that still looks wrong */
+  .pillar-entry img.fit-contain{
+    object-fit:contain;
+    background:var(--bg-panel-alt);
+    padding:12px;
+  }
+  .pillar-body .tag{margin-bottom:10px; display:block;}
+  .pillar-body h3{font-size:1.5rem; margin-bottom:8px;}
+  .pillar-body .meta{
+    font-size:0.86rem;
+    color:var(--text-faint);
+    margin-bottom:16px;
+  }
+  .pillar-body p{color:var(--text-dim); margin-bottom:20px;}
+  .pillar-focus{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .pillar-focus li{
+    font-size:0.82rem;
+    color:var(--text-dim);
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-sm);
+    padding:6px 12px;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  #timeline{background:var(--bg-panel-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .timeline{position:relative; max-width:820px;}
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:9px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--border-strong);
+  }
+  .t-item{
+    position:relative;
+    padding-left:44px;
+    margin-bottom:52px;
+  }
+  .t-item:last-child{margin-bottom:0;}
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:2px; top:5px;
+    width:17px; height:17px;
+    border-radius:50%;
+    background:var(--bg-panel-alt);
+    border:2px solid var(--accent);
+  }
+  .t-item.current::before{background:var(--accent);}
+  .t-item .yr{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .t-item h3{font-size:1.2rem; margin-bottom:12px;}
+  .t-item ul{margin:0; padding-left:18px; color:var(--text-dim);}
+  .t-item li{margin-bottom:6px; font-size:0.96rem;}
+  .t-item .badge{
+    display:inline-block;
+    margin-left:10px;
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    color:var(--teal);
+    border:1px solid rgba(111,168,174,0.4);
+    background:rgba(111,168,174,0.1);
+    padding:2px 8px;
+    border-radius:var(--radius-sm);
+    vertical-align:middle;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-card{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    background:var(--bg-panel);
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+  }
+  .contact-id{
+    padding:44px 40px;
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .contact-id img{
+    width:76px; height:76px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--border-strong);
+  }
+  .contact-id h3{font-size:1.3rem;}
+  .contact-id .role{color:var(--text-dim); font-size:0.92rem;}
+  .contact-links{
+    padding:44px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:14px;
+  }
+  .clink{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 18px;
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-sm);
+    text-decoration:none;
+    color:var(--text);
+    font-size:0.95rem;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .clink:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .clink .k{color:var(--text-faint); font-family:var(--font-mono); font-size:0.78rem;}
+
+  footer{
+    border-top:1px solid var(--border);
+    padding:32px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer p{margin:0; color:var(--text-faint); font-size:0.85rem;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr; gap:40px;}
+    .about-media{order:-1;}
+    .pillar-entry{grid-template-columns:1fr;}
+    .pillar-entry img{aspect-ratio:16/9;}
+    .pillar-entry + .pillar-entry{margin-top:36px; padding-top:36px;}
+    .contact-card{grid-template-columns:1fr;}
+    .contact-id{border-right:none; border-bottom:1px solid var(--border);}
+    .stat-row{grid-template-columns:repeat(2, minmax(0,1fr));}
+  }
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:68px; left:0; right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      flex-direction:column;
+      padding:8px 16px 16px;
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 8px;}
+    .nav-toggle{display:block;}
+    section{padding:64px 0;}
+    .hero{padding:88px 0 64px;}
+    .pillar-tabs{gap:0;}
+    .pillar-tab{margin-right:18px; font-size:0.86rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#hero" class="brand">MY <span>// GLASS_Scholar</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#program">Program Overview</a></li>
+      <li><a href="#pillars">Core Pillars</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost" style="padding:9px 16px; font-size:0.85rem;">Contact</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap hero-inner">
+    <span class="tag">Global Leaders and Scholars in STEM (GLASS)</span>
+    <h1> Bridging gaps in wireless communication worldwide.</h1>
+    <p class="lede">I am a passionate Electrical and Computer Engineering student at NYU Tandon School of Engineering, with a strong interest in wireless communications and global connectivity. My experiences range from hands-on research in RF device calibration with the Wireless 6G team to designing innovative projects like motion-detecting prototypes.</p>
+    <div class="hero-actions">
+      <a href="#pillars" class="btn btn-primary">Explore Core Pillars</a>
+      <a href="#timeline" class="btn btn-ghost">View My Timeline</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num"><em>3.67</em></div><div class="label">Cumulative GPA</div></div>
+      <div class="stat"><div class="num"><em>5</em></div><div class="label">Countries Visited</div></div>
+      <div class="stat"><div class="num"><em>0</em></div><div class="label">Coming Soon</div></div>
+      <div class="stat"><div class="num"><em>0</em></div><div class="label">Coming Soon</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="tag">// about</span>
+      <h2 style="margin:14px 0 22px; font-size:clamp(1.6rem, 3vw, 2.2rem);">My Story &amp; Mission</h2>
+      <p>Every Saturday afternoon, my family hops on a WhatsApp call to check in with relatives back home in Egypt. It is our primary bridge across the world—a time for sharing stories, catching up, and watching my five-year-old cousin play with video filters while yelling "Eftahu el camera!" Yet, far too often, the video freezes and the audio cuts out due to underdeveloped regional infrastructure. Experiencing this gap firsthand sparked my core passion: leveraging engineering to ensure that distance never compromises human connection. At its heart, wireless communication isn't just about signal strength or data rates; it's about keeping families connected, regardless of geography or economic conditions.</p>
+      <p>My journey toward solving these global infrastructure disparities began at NYU through the Wireless 6G Vertically Integrated Project (VIP), where I research and model high-frequency calibration kits using 3D electromagnetic simulators (HFSS). I am pairing this rigorous technical foundation with practical industry experience—focusing on real-time data transmission and applying Machine Learning models to network optimization. Through international exposure, including studying regional infrastructure challenges in the UAE, I am working to understand both the high-level technology and the on-the-ground needs of communities that lack reliable, affordable networks.</p>
+      <p>Ultimately, my mission aligns with UN Sustainable Development Goal 9: building resilient infrastructure, promoting sustainable industrialization, and fostering innovation. By bridging the digital divide, I aim to design next-generation communication systems that ensure underserved regions are no longer left behind. My goal is to advance global telecommunications so that no child—whether in Egypt, the UAE, Sub-Saharan Africa, or Oceania—has to struggle to see the faces or hear the voices of the people they love.</p>
+      <a href="#pillars" class="btn btn-ghost">See how this plays out →</a>
+    </div>
+    <div class="about-media" style="display:flex; align-items:center; justify-content:center; height:100%;">
+      <img src="images/Young-Profile-Photo.jpg" alt="A picture of Mohamed Youssef when he was younger">
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="wrap">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; padding:28px 24px; background:var(--bg-panel); border:1px solid var(--border); border-radius:var(--radius-md); flex-wrap:wrap;">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="tag">// program</span>
+        <h2>What is GLASS?</h2>
+        <p>"The Global Leaders and Scholars in STEM (GLASS) program brings together and supports high-achieving undergraduates with the potential for becoming global leaders in innovation, technology, research, and entrepreneurship. Through a variety of programming and resources, the GLASS program empowers students to become the next generation of socially conscious engineering leaders."</p>
+      </div>
+      <a href="https://engineering.nyu.edu/academics/undergraduate/glass" target="_blank" rel="noopener noreferrer" style="flex-shrink:0; display:inline-block; padding:14px 32px; background:var(--accent, #4f46e5); color:#fff; text-decoration:none; font-size:0.95rem; font-weight:600; border-radius:8px; transition:opacity 0.15s ease;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">
+        Learn More
+      </a>
+    </div>
+</section>
+
+<section id="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// framework</span>
+      <h2>The Five Core Pillars</h2>
+      <p>Every GLASS scholar builds a portfolio across five areas of growth. Select a pillar to see how I've approached it.</p>
+    </div>
+
+    <div class="pillar-tabs" role="tablist" aria-label="Core pillars">
+      <button class="pillar-tab active" data-target="p-global" role="tab" aria-selected="true"><span class="dot"></span>Global Competency</button>
+      <button class="pillar-tab" data-target="p-service" role="tab" aria-selected="false"><span class="dot"></span>Service</button>
+      <button class="pillar-tab" data-target="p-leadership" role="tab" aria-selected="false"><span class="dot"></span>Leadership</button>
+      <button class="pillar-tab" data-target="p-academic" role="tab" aria-selected="false"><span class="dot"></span>Academic Excellence</button>
+      <button class="pillar-tab" data-target="p-professional" role="tab" aria-selected="false"><span class="dot"></span>Professional</button>
+    </div>
+
+    <div class="pillar-panel" id="p-leadership">
+      <div class="pillar-entry">
+         <img src="images/Coming-Soon.jpg" alt="Place holder coming soon image">
+        <div class="pillar-body">
+          <span class="tag">Leadership</span>
+          <h3>MakerSpace</h3>
+          <div class="meta">NYU MakerSpace &amp; Teaching Assistant  · 2025–Present</div>
+          <p>Train over 15 students daily on board fabrication workflows—including Gerber preparation, substrate setup, and calibration—while enforcing lab safety protocols to maintain an accessible, secure facility. I also collaborated with a three-member training team to author five machine safety guides and independently designed and led a Raspberry Pi workshop teaching introductory hardware and programming skills.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel active" id="p-global">
+      <div class="pillar-entry">
+        <img src="images/GlobalCompetency-AbuDhabi.jpg" alt="Picture of Mohamed Youssef in traditonal UAE attire" style="object-position: center;">
+        <div class="pillar-body">
+          <span class="tag">Global Competency</span>
+          <h3>Study Abroad, NYU Abu Dhabi</h3>
+          <div class="meta">Spring 2026 · Abu Dhabi, UAE</div>
+          <p>Academically, adapting to a new university system in Abu Dhabi taught me how to engage deeply with different perspectives and navigate unfamiliar learning environments. Professionally, managing the sudden changes to my program and navigating an international setting proved to me that I can stay resilient and thrive in global work environments. Personally, stepping out of my comfort zone to join the volleyball team and explore the UAE boosted my confidence in building meaningful connections with people from completely different backgrounds. Beyond Abu Dhabi, this entire experience has inspired me to want to pursue more global opportunities while keeping me adaptable, open-minded, and grounded in both my career and personal life.</p>
+        </div>
+      </div>
+      <div class="pillar-entry">
+        <img src="images/GlobalCompetency-Seoul.jpg" alt="Place holder coming soon image" style="object-position: center 50%;">
+        <div class="pillar-body">
+          <span class="tag">Global Competency</span>
+          <h3>Study Abroad, Hanyang University</h3>
+          <div class="meta">Summer 2026 · Seoul, South Korea</div>
+          <p>I conducted blindfolded field testing and developed an iOS capture app that powered a real-time image-to-tactile rendering pipeline linking smart glasses to a Dot Pad display across four processing methods. I then field-tested the complete system across two museums and 15+ exhibits to establish accessibility requirements and benchmark hardware accuracy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel" id="p-academic">
+      <div class="pillar-entry">
+        <img src="images/AcademicExcellence-SHPE.jpg" alt="Picture of Mohamed Youssef and the SHPE National Confernece" style="object-position: center;">
+        <div class="pillar-body">
+          <span class="tag">Academic Excellence</span>
+          <h3>SHPE National Conference</h3>
+          <div class="meta">51th Annual Conference · Philadelphia, PA · October 2025</div>
+          <p>Attending SHPE gave me the opportunity to meet recruiters and connect with other students. Overall it was a very interesting experience where I learned about how to advocate and talk about myself and my experiences. I was able to get into the P&G hospitality suite where I was able to to do brief interview practice. It was also cool attending the job conference portion where I was able to walk around many different booths and speak with different companies. This will hopefully help me get internships and jobs in the future.</p>
+        </div>
+      </div> 
+    </div>
+
+    <div class="pillar-panel" id="p-service">
+      <div class="pillar-entry">
+        <img src="images/Service-Saghiri.jpg" alt="A translated scan of Mohamed Youssef's certification of completion" class="fit-contain">
+        <div class="pillar-body">
+          <span class="tag">Service</span>
+          <h3>صغيري (Saghiri Foundation)</h3>
+          <div class="meta">One Week · Spring 2026 · Alexandria, Egypt</div>
+          <p>Prepare, package, and distribute meals to fasting community members during the holy month of Ramadan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel" id="p-professional">
+      <div class="pillar-entry">
+        <img src="images/Professional-Wireless6G.jpg" alt="Mohamed Youssef Working at his Desk with a breaboard" style="object-position: center 20%;">
+        <div class="pillar-body">
+          <span class="tag">Professional</span>
+          <h3>Wireless 6G VIP</h3>
+          <div class="meta">RF Simulation/Manufacturing · 2025 - 2026</div>
+          <p>Design and fabricate PCB boards using an LPKF to create SLOT calibration kits for computer chips.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// timeline</span>
+      <h2>My GLASS Journey</h2>
+      <p>Three years, tracked year by year — from admission into the program to where things stand now.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="yr">Year 1 · 2025–2026</div>
+        <h3>Foundation</h3>
+        <ul>
+          <li>Applied to and was admitted into the GLASS Honors Program</li>
+          <li>Attended SHPE National Conference</li>
+          <li>Joined Wireless 6G VIP</li>
+          <li>Study Abroad at NYU Abu Dhabi</li>
+          <li>Volunteer at the Saghiri Foundation in Egypt</li>
+        </ul>
+      </div>
+      <div class="t-item current">
+        <div class="yr">Year 2 · 2026–2027 <span class="badge">current</span></div>
+        <h3>Leadership &amp; First Fieldwork</h3>
+        <ul>
+          <li>Coming Soon</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="yr">Year 3 · 2027–2028</div>
+        <h3>Global Expansion &amp; Recognition</h3>
+        <ul>
+          <li>Coming Soon</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// contact</span>
+      <h2>Let's Connect</h2>
+    </div>
+    <div class="contact-card">
+      <div class="contact-id">
+        <img src="images/Mohamed-Headshot.jpg" alt="Mohamed Youssef Headshot">
+        <div>
+          <h3>Mohamed Youssef</h3>
+          <div class="role">Electrical and Computer Engineering · Class of 2028</div>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a class="clink" href="mailto:mohamed.youssef@nyu.edu"><span>mohamed.youssef@nyu.edu</span><span class="k">email</span></a>
+        <a class="clink" href="http://www.linkedin.com/in/mohamed-youssef16" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span class="k">linkedin</span></a>
+        <a class="clink" href="images/Youssef-Mohamed-Resume.pdf" target="_blank" rel="noopener noreferrer"><span>View Résumé</span><span class="k">pdf</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© Mohamed Youssef · GLASS Honors Program</p>
+    <p style="font-family:var(--font-mono); font-size:0.75rem;">built --with care</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Pillar tabs
+  const tabs = document.querySelectorAll('.pillar-tab');
+  const panels = document.querySelectorAll('.pillar-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+
+  // Scroll-spy for nav
+  const sections = document.querySelectorAll('section[id], header + .hero[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+</script>
+
+</body>
+</html>
